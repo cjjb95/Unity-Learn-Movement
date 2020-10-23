@@ -232,7 +232,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 8
   m_Depth: -1
   m_CullingMask:
@@ -277,6 +277,7 @@ GameObject:
   - component: {fileID: 1811153305}
   - component: {fileID: 1811153309}
   - component: {fileID: 1811153310}
+  - component: {fileID: 1811153311}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Untagged
@@ -370,13 +371,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 10
   maxAcceleration: 10
-  bounciness: 0.5
-  allowedArea:
-    serializedVersion: 2
-    x: -5
-    y: -5
-    width: 10
-    height: 10
 --- !u!96 &1811153310
 TrailRenderer:
   serializedVersion: 2
@@ -472,6 +466,22 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!54 &1811153311
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811153304}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2123819806
 GameObject:
   m_ObjectHideFlags: 0
