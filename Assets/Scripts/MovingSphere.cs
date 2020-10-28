@@ -10,6 +10,7 @@ public class MovingSphere : MonoBehaviour
 	float maxAcceleration = 10f;
 	Vector3 velocity, desiredVelocity;
 	Rigidbody body;
+	bool desiredJump;
 
 	void Awake()
 	{
@@ -23,6 +24,7 @@ public class MovingSphere : MonoBehaviour
 		playerInput.y = Input.GetAxis("Vertical");
 		playerInput = Vector2.ClampMagnitude(playerInput, 1f);
 
+		desiredJump |= Input.GetButtonDown("Jump");
 		desiredVelocity = new Vector3(playerInput.x, 0f, playerInput.y) * maxSpeed;
 	}
 
@@ -32,6 +34,19 @@ public class MovingSphere : MonoBehaviour
 		float maxSpeedChange = maxAcceleration * Time.deltaTime;
 		velocity.x = Mathf.MoveTowards(velocity.x, desiredVelocity.x, maxSpeedChange);
 		velocity.z = Mathf.MoveTowards(velocity.z, desiredVelocity.z, maxSpeedChange);
+
+		if (desiredJump)
+		{
+			desiredJump = false;
+			Jump();
+		}
+
 		body.velocity = velocity;
 	}
+
+	void Jump()
+	{
+		velocity.y += 5f;
+	}
+
 }
